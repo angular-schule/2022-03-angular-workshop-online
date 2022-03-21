@@ -17,7 +17,7 @@ Die gesamte Installation wird rund 30 Minuten dauern.
 
 1. **Node.js 14 oder 16** (aktuelle LTS-Version): [https://nodejs.org](https://nodejs.org)
    + Mac-Nutzer:innen bitte Homebrew verwenden! ([siehe Anleitung](https://presentations.angular.schule/HOMEBREW_NODE))
-2. **Google Chrome:** [https://www.google.com/chrome/](https://www.google.com/chrome/) mit folgenden Extensions:
+2. **Google Chrome:** [https://www.google.com/chrome/](https://www.google.com/chrome/)
 3. **Visual Studio Code:** [https://code.visualstudio.com](https://code.visualstudio.com)
    + Wir empfehlen dir eine Auswahl an Extensions für Visual Studio Code.  
      Dazu haben wir ein Extension Pack vorbereitet, das alles Nötige einrichtet:  
