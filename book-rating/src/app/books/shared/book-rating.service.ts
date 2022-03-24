@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, NgProbeToken } from '@angular/core';
 import { Book } from './book';
 
 @Injectable({
@@ -9,10 +9,17 @@ export class BookRatingService {
   constructor() { }
 
   rateUp(book: Book): Book {
-    return book; // TODO
+    return {
+      ...book,
+      // rating: book.rating < 5 ? book.rating + 1 : 5
+      rating: Math.min(book.rating + 1, 5)
+    };
   }
 
   rateDown(book: Book): Book {
-    return book; // TODO
+    return {
+      ...book,
+      rating: Math.max(book.rating - 1, 1)
+    };
   }
 }
