@@ -1,5 +1,7 @@
 <br-book
   *ngFor="let b of books"
+  (rateUp)="doRateUp($event)"
+  (rateDown)="doRateDown($event)"
   [book]="b"></br-book>
 
 <div>
