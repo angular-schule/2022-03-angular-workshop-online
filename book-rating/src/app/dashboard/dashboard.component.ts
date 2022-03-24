@@ -34,7 +34,9 @@ export class DashboardComponent implements OnInit {
 
 }
 
+
 /*
+
 class BookC {
   rating: number = 5;
   constructor(public isbn: string, public title: string) {}
@@ -85,6 +87,7 @@ function rateUp(book: BookI): BookI {
   return book;
 }
 
+
+
+
 */
-
-
