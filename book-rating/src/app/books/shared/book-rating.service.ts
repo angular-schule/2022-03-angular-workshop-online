@@ -1,4 +1,4 @@
-import { Injectable, NgProbeToken } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { Book } from './book';
 
 @Injectable({
@@ -6,7 +6,7 @@ import { Book } from './book';
 })
 export class BookRatingService {
 
-  constructor() { }
+  constructor() {}
 
   rateUp(book: Book): Book {
     return {
