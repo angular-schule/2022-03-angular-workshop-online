@@ -9,11 +9,10 @@
       </h2>
     </div>
     <p>{{ book.description }}</p>
-    <p>{{ book.price }}</p>
+    <p>{{ book.price | currency:'EUR' }}</p>
 
     <button class="btn btn-green" (click)="doRateUp()"> + </button>
     <button class="btn btn-red" (click)="doRateDown()"> – </button>
   </div>
 </div>
-
-{{ log() }}
+<!--{{ log() }}-->
