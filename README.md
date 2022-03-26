@@ -7,6 +7,21 @@
 **Herzlich Willkommen – und schön, dass du dabei bist!**  
 In diesem Repository findest du alle Infos zur Vorbereitung und während des Workshops den Quelltext unserer Beispielanwendung.
 
+# NEU: RxJS Playground
+
+**Download:** [rxjs-playground.zip](https://github.com/angular-schule/2022-03-angular-workshop-online/files/8356419/rxjs-playground.zip)
+
+Nach dem Entpacken:
+
+```bash
+cd rxjs-playground
+npm install
+
+ng serve
+```
+
+Der Playground ist im Browser unter http://localhost:4300 (!) verfügbar.
+
 
 # ✅ Vorbereitung
 
