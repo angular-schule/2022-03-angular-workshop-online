@@ -1,7 +1,9 @@
 import { Component, Input, NO_ERRORS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { of } from 'rxjs';
 import { Book } from '../shared/book';
 import { BookRatingService } from '../shared/book-rating.service';
+import { BookStoreService } from '../shared/book-store.service';
 
 import { DashboardComponent } from './dashboard.component';
 
@@ -18,12 +20,18 @@ describe('DashboardComponent', () => {
       title: '',
       description: '',
       price: 44,
-      rating: 5
+      rating: 5,
+      firstThumbnailUrl: ''
     };
 
     const ratingMock: BookRatingService = {
       rateUp: b => b,
       rateDown: b => b
+    };
+
+    // Beispiel: Stub/Mock für HTTP-Service
+    const storeMock: Partial<BookStoreService> = {
+      getAll: () => of([])
     };
 
     await TestBed.configureTestingModule({

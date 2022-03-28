@@ -13,7 +13,7 @@ export class BookStoreService {
   constructor(private http: HttpClient) { }
 
   getAll(): Observable<Book[]> {
-    return this.http.get<Book[]>(this.apiUrl + '/books', );
+    return this.http.get<Book[]>(this.apiUrl + '/books');
   }
 
   getSingle(isbn: string): Observable<Book> {
