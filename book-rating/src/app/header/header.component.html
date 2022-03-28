@@ -1,0 +1,11 @@
+<nav>
+  <!--<a class="me-3" [routerLink]="">Dashboard</a>
+  <a class="me-3" [routerLink]="['/books']">Dashboard</a>
+  <a class="me-3" [routerLink]="'/books'">Dashboard</a>-->
+  <a class="me-3"
+    routerLink="/books"
+    routerLinkActive="active"
+    [routerLinkActiveOptions]="{ exact: true }">Dashboard</a>
+  <a class="me-3" routerLink="/books/create" routerLinkActive="active">Erstellen</a>
+  <a class="me-3" routerLink="/books/search" routerLinkActive="active">Suche</a>
+</nav>
