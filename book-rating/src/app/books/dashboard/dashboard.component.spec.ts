@@ -43,6 +43,10 @@ describe('DashboardComponent', () => {
         {
           provide: BookRatingService,
           useValue: ratingMock
+        },
+        {
+          provide: BookStoreService,
+          useValue: storeMock
         }
       ]
     })
