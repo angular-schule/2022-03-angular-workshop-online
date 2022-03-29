@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { Book } from '../shared/book';
+import { BookStoreService } from '../shared/book-store.service';
 
 @Component({
   selector: 'br-book-create',
@@ -10,7 +13,7 @@ export class BookCreateComponent implements OnInit {
 
   bookForm: FormGroup;
 
-  constructor() {
+  constructor(private bs: BookStoreService, private router: Router) {
     this.bookForm = new FormGroup({
       isbn: new FormControl('', [
         Validators.required,
@@ -25,11 +28,25 @@ export class BookCreateComponent implements OnInit {
         Validators.min(1),
         Validators.max(5),
       ]),
-      price: new FormControl(0, Validators.min(0)),
+      price: new FormControl(0, Validators.min(0))
     });
   }
 
   ngOnInit(): void {
+  }
+
+  submitForm() {
+
+    const newBook: Book = {
+      ...this.bookForm.value,
+      firstThumbnailUrl: ''
+    };
+
+    // TODO: Buch zum Server schicken
+    this.bs.create(newBook).subscribe(receivedBook => {
+      this.router.navigate(['/books', receivedBook.isbn]);
+      // this.router.navigateByUrl('/books');
+    });
   }
 
   isInvalid(controlName: string): boolean {
