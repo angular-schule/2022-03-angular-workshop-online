@@ -32,6 +32,17 @@ export class BookCreateComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  isInvalid(controlName: string): boolean {
+    const control = this.bookForm.get(controlName);
+    return !!control && control.touched && control.invalid;
+    // Alternative: return !!(control?.touched && control?.invalid);
+  }
+
+  hasError(controlName: string, errorCode: string): boolean {
+    const control = this.bookForm.get(controlName);
+    return !!control && control.touched && control.hasError(errorCode);
+  }
+
 }
 
 
