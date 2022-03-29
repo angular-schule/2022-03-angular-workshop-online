@@ -25,7 +25,12 @@ export class FromeventComponent {
 
     /******************************/
 
-    fromEvent<ResizeEventType>(window, 'resize').subscribe(e => console.log(e));
+    const width$ = fromEvent<ResizeEventType>(window, 'resize').pipe(
+      map(e => e.currentTarget.innerWidth),
+      startWith(window.innerWidth)
+    ).subscribe(e => {
+      this.currentWidth = e;
+    });
 
     /******************************/
   }
