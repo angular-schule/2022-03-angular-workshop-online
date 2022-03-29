@@ -22,7 +22,47 @@ export class CreatingComponent {
 
     /******************************/
 
-    
+
+    // of('A', 'B', 'C')
+    // from([12, 34, 56, 67])
+    // interval(1000)
+    // timer(3000)
+
+    timer(3000, 500).subscribe({
+      next: e => this.log(e),
+      complete: () => this.log('COMPLETE')
+    });
+
+
+    /******************************/
+
+    function producer(sub: any) {
+      const result = Math.random();
+      sub.next(result);
+
+      sub.next(2);
+      sub.next(3);
+
+
+      setTimeout(() => {
+        sub.next(5);
+        sub.error('FEHLER!');
+      }, 2000)
+    }
+
+
+    const obs = {
+      next: (e: any) => console.log(e),
+      error: (err: any) => console.error(err),
+      complete: () => console.log('Complete')
+    };
+
+    // producer(obs);
+
+    const myObs$ = new Observable(producer);
+    // myObs$.subscribe(obs);
+
+
     /******************************/
   }
 
