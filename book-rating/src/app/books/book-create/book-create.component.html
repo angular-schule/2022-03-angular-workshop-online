@@ -1,1 +1,28 @@
-<p>book-create works!</p>
+<form [formGroup]="bookForm">
+  <div class="form-group">
+    <label>ISBN</label>
+    <input type="text" class="form-control" formControlName="isbn">
+  </div>
+
+  <div class="form-group">
+    <label>Titel</label>
+    <input type="text" class="form-control" formControlName="title">
+  </div>
+
+  <div class="form-group">
+    <label>Beschreibung</label>
+    <textarea class="form-control" formControlName="description"></textarea>
+  </div>
+
+  <div class="form-group">
+    <label>Preis</label>
+    <input type="number" step="0.1" class="form-control" formControlName="price">
+  </div>
+
+  <div class="form-group">
+    <label>Bewertung</label>
+    <input type="number" min="1" max="5" class="form-control" formControlName="rating">
+  </div>
+</form>
+
+<pre>{{ bookForm.value | json }}</pre>

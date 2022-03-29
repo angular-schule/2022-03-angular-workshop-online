@@ -10,7 +10,6 @@ const routes: Routes = [
   { path: 'create', component: BookCreateComponent },
   { path: 'search', component: BookSearchComponent },
   { path: ':isbn', component: BookDetailsComponent },
-
 ];
 
 @NgModule({
