@@ -19,10 +19,13 @@ export class UnsubscribeComponent implements OnDestroy {
    *
    * Es gibt noch weitere Wege, das Problem zu lösen ...
    */
+
+  private sub: Subscription
+
   constructor() {
     const interval$ = timer(0, 1000);
 
-    interval$.pipe(
+    this.sub = interval$.pipe(
 
       /******************************/
 
@@ -37,7 +40,7 @@ export class UnsubscribeComponent implements OnDestroy {
   }
 
   ngOnDestroy() {
-
+    this.sub.unsubscribe();
   }
 
   log(msg: string | number) {
