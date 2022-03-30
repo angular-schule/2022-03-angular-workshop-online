@@ -24,12 +24,17 @@ export class ErrorHandlingComponent {
 
   start() {
     this.es.randomError().pipe(
+      catchError(err => {
+        // Fehler weiterwerfen
+        // return throwError(() => 'EIN FEHLER!');
+        // throw 'EVIL!!';
 
-      /******************************/
+        // Fehler ersetzen
+        // return of('Fehler ersetzt!')
 
-      
-      /******************************/
-
+        // Fehler verschlucken
+        return EMPTY;
+      })
     ).subscribe({
       next: e => this.logStream$.next(e),
       error: err => this.logStream$.next('❌ ERROR: ' + err)

@@ -25,8 +25,9 @@ export class CreatingComponent {
 
     // of('A', 'B', 'C')
     // from([12, 34, 56, 67])
-    // timer(3000)
-    // timer(1000, 500)
+    // timer(3000) // ---------------0|
+    // timer(1000, 500) // ----------0-----1-----2-----3 ...
+    // interval(500) // -----0-----1-----2-----3-----4 ...
 
     const myObs2$ = interval(500).pipe(
       map(e => e * 3),

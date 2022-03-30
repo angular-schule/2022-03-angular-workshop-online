@@ -42,7 +42,6 @@ export class BookCreateComponent implements OnInit {
       firstThumbnailUrl: ''
     };
 
-    // TODO: Buch zum Server schicken
     this.bs.create(newBook).subscribe(receivedBook => {
       this.router.navigate(['/books', receivedBook.isbn]);
       // this.router.navigateByUrl('/books');

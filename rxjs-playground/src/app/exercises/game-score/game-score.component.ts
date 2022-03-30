@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Subject, ReplaySubject, scan, reduce } from 'rxjs';
+import { Subject, ReplaySubject, scan, reduce, of, map, take } from 'rxjs';
 
 @Component({
   selector: 'rxw-game-score',
@@ -19,6 +19,42 @@ export class GameScoreComponent {
      */
 
     /******************************/
+
+    this.score$.pipe(
+      scan((acc, item) => acc + item, 0)
+    ).subscribe(score => {
+      this.currentScore = score;
+    });
+
+    // 1 --- 5 ---- 10 ---- 2 --- -5
+    // 1 --- 6 ---- 16 ---- 18 --- 13
+
+    // [1,2,3].reduce((acc, item) => acc + item) // 6
+
+
+    /******************************/
+
+    of(
+      'SETCITYLEIPZIG',
+      'SETCITYDD',
+      'SETNAMEFERDINAND',
+      'UNKNOWN',
+      'SETNAMEKLAUS',
+      'SETNAMEANDREA',
+    ).pipe(
+      scan((acc, item) => {
+        switch (item) {
+          case 'SETCITYLEIPZIG': return { ...acc, city: 'Leipzig' };
+          case 'SETCITYDD': return { ...acc, city: 'Dresden' };
+          case 'SETNAMEFERDINAND': return { ...acc, name: 'Ferdinand' };
+          case 'SETNAMEKLAUS': return { ...acc, name: 'Klaus' };
+          case 'SETNAMEANDREA': return { ...acc, name: 'Andrea' };
+          default: return acc;
+        }
+      }, { name: 'Andrea' }),
+      // map((state: any) => state.city)
+    ).subscribe(e => console.log(e))
+
 
 
     /******************************/
